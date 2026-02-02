@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fale Conosco | Santa Branca Transportes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link id="#fale-conosco">
+
+<style>
+:root {
+  --bg-dark: #020617;
+  --bg-card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.12);
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #c9251a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logo img {
+  width: 42px;
+}
+
+/* =====================
+   CONTATO
+===================== */
+.contato {
+  padding: 80px 8% 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 540px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 40px 80px rgba(0,0,0,.5);
+}
+
+.form-wrapper h1 {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+.form-wrapper p {
+  font-size: .95rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: .85rem;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: .95rem;
+  outline: none;
+  transition: border .3s ease, box-shadow .3s ease;
+}
+
+select option {
+  color: #020617;
+  background-color: #ffffff;
+}
+
+textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,37,26,.25);
+}
+
+/* =====================
+   BOTÕES
+===================== */
+.form-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #ff4d3d);
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background: #020617;
+  color: #94a3b8;
+  text-align: center;
+  padding: 18px;
+  font-size: .9rem;
+}
+
+/* =====================
+   RESPONSIVO
+===================== */
+@media (max-width: 768px) {
+  header {
+    padding: 0 6%;
+  }
+
+  .contato {
+    padding: 60px 6%;
+  }
+
+  .form-wrapper {
+    padding: 30px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="./public/logo.png" alt="Santa Branca">
+    Santa Branca Transportes
+  </div>
+</header>
+
+<main class="contato">
+  <form class="form-wrapper"
+      method="POST"
+      action="./contato.php"
+      novalidate>
+
+  <!-- Honeypot anti-spam (não visível ao usuário) -->
+  <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
+
+  <h1>Fale Conosco</h1>
+  <p>Preencha o formulário e entraremos em contato o mais breve possível.</p>
+
+  <div class="form-group">
+    <label for="nome">Nome *</label>
+    <input type="text" id="nome" name="nome" required>
+  </div>
+
+  <div class="form-group">
+    <label for="empresa">Empresa</label>
+    <input type="text" id="empresa" name="empresa">
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-mail *</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="tipo">Tipo *</label>
+    <select id="tipo" name="tipo" required>
+      <option value="">Selecione</option>
+      <option>Dúvida</option>
+      <option>Sugestão</option>
+      <option>Reclamação</option>
+      <option>Outros</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="mensagem">Mensagem *</label>
+    <textarea id="mensagem" name="mensagem" required></textarea>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn-primary" type="submit">Enviar mensagem</button>
+    <button class="btn-secondary" type="reset">Limpar</button>
+  </div>
+</form>
+
+</main>
+
+<footer>
+  © 2026 Santa Branca Transportes · Todos os direitos reservados
+</footer>
+
+</body>
+</html>
