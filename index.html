@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="./public/logo-icon.png">
 
 <style>
 :root {
@@ -215,7 +216,6 @@ header {
   z-index: 2;
   pointer-events: none;
 }
-
 
 /* garante que textos fiquem acima */
 .hero h1,
@@ -574,6 +574,119 @@ footer {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* NAV COM DROPDOWN */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  cursor: pointer;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 230px;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,.18);
+
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 999;
+}
+
+.dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+
+/* LINKS */
+.dropdown a {
+  display: block;
+  padding: 10px 22px;
+  font-size: .9rem;
+  color: #1e293b;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+
+.dropdown a:hover {
+  background: #f1f5f9;
+  color: var(--accent);
+}
+
+/* HOVER DESKTOP */
+@media (min-width: 769px) {
+  .nav-item:hover .dropdown,
+  .dropdown:hover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+
+    /* remove delay ao abrir */
+    transition-delay: 0s;
+  }
+}
+
+/* DROPDOWN MOBILE */
+@media (max-width: 768px) {
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity .25s ease 2s, transform .25s ease 2s;
+  }
+
+  .dropdown.open {
+    max-height: 600px;
+  }
+
+  .dropdown a {
+    padding: 12px 0;
+    color: white;
+    font-size: 1.1rem;
+  }
+}
+
+/* LINK COM SETA SVG */
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* SVG */
+.nav-arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+footer a {
+  color: #a1abca;
+  transition: color .3s ease;
+}
+
+footer a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 </style>
 </head>
 
@@ -586,10 +699,59 @@ footer {
   </div>
 
   <nav class="nav">
-    <a href="./public/horario-santabranca.pdf" target="_blank" rel="noopener">Horários</a>
-    <a href="./public/itinerarios.pdf" target="_blank" rel="noopener">Itinerários</a>
-    <a href="fale-conosco.html" target="_blank">Fale conosco</a>
+    <div class="nav-item">
+      <a href="#">
+        Empresa
+        <svg class="nav-arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="dropdown">
+        <a href="#">Quem Somos</a>
+        <a href="#">História</a>
+        <a href="./public/politica-de-privacidade.pdf">Política de Privacidade</a>
+        <a href="https://jtu.com.br/">JTU - Jacareí Transporte Urbano</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#">
+        Vale Transporte
+        <svg class="nav-arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="dropdown">
+        <a href="https://jtu.com.br/page/portal-de-vendas" target="_blank">Portal de Vendas</a>
+        <a href="./public/manual-portal-de-vendas.pdf" target="_blank">Manual Portal de Vendas</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#">
+        Cartão Superpasse
+        <svg class="nav-arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="dropdown">
+        <a href="https://jtu.com.br/page/estudante-2025-1762867383" target="_blank">Estudante 2026</a>
+        <a href="https://jtu.com.br/page/vale-transporte-2095" target="_blank">Vale Transporte</a>
+        <a href="https://jtu.com.br/page/multiplo" target="_blank">Múltiplo</a>
+        <a href="https://jtu.com.br/page/vale-educacao" target="_blank">Vale Educação</a>
+        <a href="https://jtu.com.br/page/idoso-e-senior" target="_blank">Idoso e Sênior</a>
+        <a href="https://jtu.com.br/page/pessoa-com-deficiencia" target="_blank">Pessoa com Deficiência</a>
+        <a href="https://jtu.com.br/page/perda-e-roubo" target="_blank">Perda e Roubo</a>
+        <a href="https://jtu.com.br/paginas/postos-de-venda-e-horario-de-atendimento" target="_blank">Pontos de Recarga</a>
+      </div>
+    </div>
+
+    <a href="https://jtu.com.br/page/contato" target="_blank">Contato</a>
   </nav>
+
 
   <button class="menu-toggle" aria-label="Abrir menu">
     <span></span>
@@ -608,9 +770,13 @@ footer {
 <section class="hero">
   <div class="hero-content-mobile">
     <h1>Mobilidade que conecta cidades.</h1>
-    <p>Transporte urbano e intermunicipal com foco em conforto, pontualidade e tecnologia.</p>
+    <p>Transporte intermunicipal com foco em conforto, pontualidade, tecnologia e segurança.</p>
     <button class="cta" onclick="window.open('./public/horario-santabranca.pdf','_blank')">
-      Consultar Horários
+      CONSULTAR HORÁRIOS
+    </button>
+
+    <button class="cta" onclick="window.open('./public/itinerarios.pdf','_blank')">
+      CONSULTAR ITINERÁRIO
     </button>
   </div>
 
@@ -619,13 +785,12 @@ footer {
   </div>
 
   <img 
-    src="./public/onibus-mockup.png" 
+    src="./public/onibus-mockup1.png" 
     alt="Ônibus Santa Branca Transportes"
     class="hero-bus"
   />
   <div class="hero-gradient-overlay"></div>
 </section>
-
 
 
 <section class="cards section-animate">
@@ -642,7 +807,7 @@ footer {
   <div class="card">
     <h3>🎓 Cadastro Escolar</h3>
     <p>Atualize seu cadastro para tarifa escolar.</p>
-    <a href="./public/fichaescolarpassesantabranca.pdf" target="_blank" class="ficha-escolar">Ficha de Cadastro Escolar</a>
+    <a href="./public/fichaescolarpassesantabranca.pdf" target="_blank">Ficha de Cadastro Escolar</a>
   </div>
 </section>
 
@@ -655,7 +820,9 @@ footer {
 </section>
 
 <footer>
-  © 2026 Santa Branca Transportes · Todos os direitos reservados
+  Av. Getúlio Dorneles Vargas, 3450 - Jardim Luiza, Jacareí - SP / CEP: 12305-903
+  <br><br>
+  © 2026 Santa Branca Transportes · Todos os direitos reservados · <a href="./public/politica-de-privacidade.pdf">Política de Privacidade</a>
 </footer>
 
 <script>
@@ -702,10 +869,53 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
 });
 </script>
 
+<script>
+document.querySelectorAll('.nav-item > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      const item = link.parentElement;
+      const dropdown = link.nextElementSibling;
+
+      document.querySelectorAll('.nav-item').forEach(i => {
+        if (i !== item) i.classList.remove('open');
+      });
+
+      item.classList.toggle('open');
+      dropdown.classList.toggle('open');
+    }
+  });
+});
+</script>
+
+<script>
+document.querySelectorAll('.nav-item').forEach(item => {
+  const dropdown = item.querySelector('.dropdown');
+  let closeTimeout;
+
+  item.addEventListener('mouseenter', () => {
+    clearTimeout(closeTimeout);
+    dropdown.classList.add('show');
+  });
+
+  item.addEventListener('mouseleave', () => {
+    closeTimeout = setTimeout(() => {
+      dropdown.classList.remove('show');
+    }, 100); // ⏱️ 2 segundos
+  });
+
+  dropdown.addEventListener('mouseenter', () => {
+    clearTimeout(closeTimeout);
+  });
+
+  dropdown.addEventListener('mouseleave', () => {
+    closeTimeout = setTimeout(() => {
+      dropdown.classList.remove('show');
+    }, 100);
+  });
+});
+</script>
+
 
 </body>
 </html>
-
-
-
-
