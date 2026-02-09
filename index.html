@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" type="image/x-icon" href="./public/logo-icon.png">
 
 <style>
@@ -335,14 +336,6 @@ header {
     font-size: .95rem;
     line-height: 1.6;
   }
-
-  /* =========================
-     FOOTER
-  ========================= */
-  footer {
-    padding: 16px 6%;
-    font-size: .8rem;
-  }
   
   /* ==== NAV E MENU ==== */
   .nav {
@@ -493,14 +486,6 @@ img {
   text-decoration: none;
 }
 
-/* FOOTER */
-footer {
-  background: #020617;
-  color: #94a3b8;
-  text-align: center;
-  padding: 18px;
-  font-size: .9rem;
-}
 
 /* BOTÃO HAMBURGER */
 .menu-toggle {
@@ -677,14 +662,16 @@ footer {
   flex-shrink: 0;
 }
 
-footer a {
-  color: #a1abca;
-  transition: color .3s ease;
-}
 
-footer a:hover {
-  color: var(--accent);
-  text-decoration: underline;
+/* =========================
+   FOOTER 
+========================= */
+footer {
+  background: #020617;
+  color: #94a3b8;
+  text-align: center;
+  padding: 18px;
+  font-size: .9rem;
 }
 
 </style>
@@ -710,41 +697,20 @@ footer a:hover {
       <div class="dropdown">
         <a href="#">Quem Somos</a>
         <a href="#">História</a>
-        <a href="./public/politica-de-privacidade.pdf">Política de Privacidade</a>
-        <a href="https://jtu.com.br/">JTU - Jacareí Transporte Urbano</a>
       </div>
     </div>
 
     <div class="nav-item">
       <a href="#">
-        Vale Transporte
+        Estudantes
         <svg class="nav-arrow" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
       <div class="dropdown">
-        <a href="https://jtu.com.br/page/portal-de-vendas" target="_blank">Portal de Vendas</a>
-        <a href="./public/manual-portal-de-vendas.pdf" target="_blank">Manual Portal de Vendas</a>
-      </div>
-    </div>
-
-    <div class="nav-item">
-      <a href="#">
-        Cartão Superpasse
-        <svg class="nav-arrow" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <div class="dropdown">
-        <a href="https://jtu.com.br/page/estudante-2025-1762867383" target="_blank">Estudante 2026</a>
-        <a href="https://jtu.com.br/page/vale-transporte-2095" target="_blank">Vale Transporte</a>
-        <a href="https://jtu.com.br/page/multiplo" target="_blank">Múltiplo</a>
-        <a href="https://jtu.com.br/page/vale-educacao" target="_blank">Vale Educação</a>
-        <a href="https://jtu.com.br/page/idoso-e-senior" target="_blank">Idoso e Sênior</a>
-        <a href="https://jtu.com.br/page/pessoa-com-deficiencia" target="_blank">Pessoa com Deficiência</a>
-        <a href="https://jtu.com.br/page/perda-e-roubo" target="_blank">Perda e Roubo</a>
+        <a href="./public/fichaescolarpassesantabranca.pdf">Ficha de Cadastro Escolar</a>
+        <a href="https://www.artesp.sp.gov.br/artesp/cidadaos/transporte-coletivo/passe-escolar-metropolitano" target="_blank">Sobre o Passe Escolar</a>
         <a href="https://jtu.com.br/paginas/postos-de-venda-e-horario-de-atendimento" target="_blank">Pontos de Recarga</a>
       </div>
     </div>
@@ -822,9 +788,8 @@ footer a:hover {
 <footer>
   Av. Getúlio Dorneles Vargas, 3450 - Jardim Luiza, Jacareí - SP / CEP: 12305-903
   <br><br>
-  © 2026 Santa Branca Transportes · Todos os direitos reservados · <a href="./public/politica-de-privacidade.pdf">Política de Privacidade</a>
+  © 2026 Santa Branca Transportes · Todos os direitos reservados
 </footer>
-
 <script>
 // SECTION
 const sectionObserver = new IntersectionObserver(entries => {
