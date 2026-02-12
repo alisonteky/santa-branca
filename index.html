@@ -226,77 +226,69 @@ header {
 }
 
 /* RESPONSIVO */
-/* =========================
-   AJUSTE GLOBAL MOBILE
-========================= */
-@media (max-width: 768px), {
+@media (max-width: 768px) {
+
   body {
     overflow-x: hidden;
   }
 
   header {
     height: 64px;
-    padding: 0 6%;
+    padding: 0 5%;
   }
 
-  .logo {
-    font-size: 1rem;
-    gap: 8px;
+  .nav {
+    display: none;
   }
 
-  .logo-img {
-    width: 36px;
+  .menu-toggle {
+    display: flex;
   }
 
-  /* =========================
-     HERO
-  ========================= */
+  /* HERO */
   .hero {
     min-height: auto;
-    padding: 96px 6% 60px;
+    padding: 110px 5% 40px;
     text-align: center;
-  }
-
-  .hero::before,
-  .hero::after {
-    width: 380px;
-    height: 380px;
-    filter: blur(70px);
-  }
-
-  .hero h1 {
-    font-size: 1.9rem;
-    line-height: 1.25;
-  }
-
-  .hero p {
-    font-size: 1rem;
-    max-width: 100%;
-    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
   }
 
   .hero-content-mobile {
-    transform: translateY(60px);
+    transform: none;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: .95rem;
+    margin-bottom: 20px;
   }
 
   .cta {
-    margin: 0 auto;
+    margin: 10px auto 0;
+    width: 100%;
+    max-width: 280px;
   }
 
   /* ÔNIBUS */
   .hero-bus {
     position: relative;
-    bottom: -60px;
-    width: 560vw;
-    max-width: 760px;
-    opacity: 0.96;
-    animation: busFloatMobile 7s ease-in-out infinite;
-    margin-top: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto 0;
+    display: block;
+    animation: busFloatMobile 6s ease-in-out infinite;
   }
 
   @keyframes busFloatMobile {
     0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
+    50%  { transform: translateY(-8px); }
     100% { transform: translateY(0); }
   }
 
@@ -308,58 +300,43 @@ header {
     display: none;
   }
 
-  /* =========================
-     CARDS
-  ========================= */
+  /* CARDS */
   .cards {
-    padding: 60px 6%;
+    padding: 60px 5%;
     grid-template-columns: 1fr;
   }
 
   .card {
-    opacity: 1;
-    transform: none;
+    padding: 24px;
   }
 
-  /* =========================
-     CONTATO
-  ========================= */
+  /* CONTATO */
   .contato {
-    padding: 60px 6%;
+    padding: 60px 5%;
   }
 
-  .contato h2 {
-    font-size: 1.4rem;
-  }
-
-  .contato p {
-    font-size: .95rem;
-    line-height: 1.6;
-  }
-  
-  /* ==== NAV E MENU ==== */
-  .nav {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
 }
 
-/* =========================
-   MOBILE PEQUENO (ex: iPhone SE)
-========================= */
+/* ======================
+MOBILE PEQUENO (IPHONE SE)
+======================= */
 @media (max-width: 400px) {
 
   .hero h1 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .hero-bus {
     max-width: 300px;
   }
+
+  .cta {
+    max-width: 100%;
+  }
+
 }
+
+
 
 /* =========================
    REGRA DE SEGURANÇA
